@@ -146,13 +146,4 @@ list.append('hamster');
 list.append('snake');
 list.append('turtle');
 
-//console.log(list.size());
-//console.log(list.head());
-//console.log(list.tail());
-//console.log(list.at(5));
-//console.log(list.pop());
-//console.log(list.contains('turtle'));
-//console.log(list.find('turtle'));
-//list.insertAt('cow', 1);
-list.removeAt(6);
 console.log(list.toString());
