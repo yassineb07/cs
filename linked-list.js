@@ -9,6 +9,8 @@ function LinkedList() {
   };
 
   const append = (value) => {
+    // adds a new node containing value to the end of the list
+
     if (!headEl) {
       prepend(value);
     } else {
@@ -23,11 +25,15 @@ function LinkedList() {
   };
 
   const prepend = (value) => {
+    // adds a new node containing value to the start of the list
+
     headEl = Node(value, headEl);
     return headEl;
   };
 
   const size = () => {
+    // returns the total number of nodes in the list
+
     let current = headEl;
     let count = 0;
     while (current) {
@@ -38,10 +44,13 @@ function LinkedList() {
   };
 
   const head = () => {
+    // returns the first node in the list
     return headEl;
   };
 
   const tail = () => {
+    // returns the last node in the list
+
     let current = headEl;
     while (current.next) {
       current = current.next;
@@ -50,6 +59,8 @@ function LinkedList() {
   };
 
   const at = (index) => {
+    // returns the node at the given index
+
     let current = headEl;
     let count = 0;
     while (current) {
@@ -63,6 +74,8 @@ function LinkedList() {
   };
 
   const pop = () => {
+    // removes the last element from the list
+
     let current = headEl;
     while (current.next.next) {
       current = current.next;
@@ -71,6 +84,8 @@ function LinkedList() {
   };
 
   const contains = (value) => {
+    // returns true if the passed in value is in the list and otherwise returns false.
+
     let current = headEl;
     while (current) {
       if (current.value === value) return true;
@@ -80,6 +95,8 @@ function LinkedList() {
   };
 
   const find = (value) => {
+    // returns the index of the node containing value, or null if not found.
+
     let current = headEl;
     let count = 0;
     while (current) {
@@ -101,6 +118,8 @@ function LinkedList() {
   };
 
   const insertAt = (value, index) => {
+    // inserts a new node with the provided value at the given index.
+
     let current = headEl;
     if (index === 0) {
       prepend(value);
@@ -115,21 +134,25 @@ function LinkedList() {
       count++;
     }
   };
+
   const removeAt = (index) => {
+    // removes the node at the given index
+
     let current = headEl;
     if (index === 0) {
       headEl = headEl.next;
-      return;
+      return true;
     }
     let count = 1;
     while (current) {
       if (index === count) {
         current.next = current.next.next;
-        return;
+        return true;
       }
       current = current.next;
       count++;
     }
+    return false;
   };
 
   return {
