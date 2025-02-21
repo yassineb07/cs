@@ -4,6 +4,10 @@ function Node(value = null, next = null) {
 function LinkedList() {
   let headEl = null;
 
+  const clear = () => {
+    headEl = null;
+  };
+
   const append = (value) => {
     if (!headEl) {
       prepend(value);
@@ -98,6 +102,9 @@ function LinkedList() {
 
   const insertAt = (value, index) => {
     let current = headEl;
+    if (index === 0) {
+      prepend(value);
+    }
     let count = 1;
     while (current) {
       if (index === count) {
@@ -110,6 +117,10 @@ function LinkedList() {
   };
   const removeAt = (index) => {
     let current = headEl;
+    if (index === 0) {
+      headEl = headEl.next;
+      return;
+    }
     let count = 1;
     while (current) {
       if (index === count) {
@@ -134,6 +145,7 @@ function LinkedList() {
     toString,
     insertAt,
     removeAt,
+    clear,
   };
 }
 
@@ -146,4 +158,6 @@ list.append('hamster');
 list.append('snake');
 list.append('turtle');
 
-console.log(list.toString());
+//console.log(list.toString());
+
+export default LinkedList;
